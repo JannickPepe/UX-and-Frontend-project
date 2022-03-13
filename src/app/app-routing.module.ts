@@ -12,6 +12,10 @@ const routes: Routes = [
   },
   {
     path: '',
+    loadChildren: () => import('./tab-bar2/tab-bar2.module').then(m => m.TabBar2PageModule)
+  },
+  {
+    path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
@@ -30,6 +34,18 @@ const routes: Routes = [
   {
     path: 'tab-bar',
     loadChildren: () => import('./tab-bar/tab-bar.module').then( m => m.TabBarPageModule)
+  },
+  {
+    path: 'tab-bar2',
+    loadChildren: () => import('./tab-bar2/tab-bar2.module').then( m => m.TabBar2PageModule)
+  },
+  {
+    path: 'email',
+    loadChildren: () => import('./email/email.module').then( m => m.EmailPageModule)
+  },
+  {
+    path: 'calendar',
+    loadChildren: () => import('./calendar/calendar.module').then( m => m.CalendarPageModule)
   },
 ];
 
