@@ -1,28 +1,28 @@
+
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-
-
-
-
 <ion-content class="ion-padding">
-  <h3 style="text-align: center;">Members of the project:</h3>
-  <h4 style="text-align: center;">Drag the image slider</h4>
-  <ion-slides style="width: 50%; height: 50%; margin-top: 3%; margin-bottom: 3%;">
-    <ion-slide>
-      <ion-img src="../../assets/jan.png"></ion-img>
-    </ion-slide>
-    <ion-slide>
-      <ion-img src="../../assets/paran.png"></ion-img>
-    </ion-slide>
-    <ion-slide>
-      <ion-img src="../../assets/ruk.png"></ion-img>
-    </ion-slide>
-  </ion-slides>
-  <form class="form" [formGroup]="validationsForm" (ngSubmit)="loginUser(validationsForm.value)">
+  <ion-content>
+
+    <h3 style="text-align: center;">Members of the project:</h3>
+    <h4 style="text-align: center;">Drag the image slider</h4>
+    <ion-slides style="margin-top: 3%; margin-bottom: 3%;" pager="true">
+      <ion-slide>
+        <ion-img src="../../assets/jan.png"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img src="../../assets/paran.png"></ion-img>
+      </ion-slide>
+      <ion-slide>
+        <ion-img src="../../assets/ruk.png"></ion-img>
+      </ion-slide>
+    </ion-slides>
+
+    <form class="form" [formGroup]="validationsForm" (ngSubmit)="loginUser(validationsForm.value)">
 
     <ion-item>
       <ion-label position="floating" color="primary">Email</ion-label>
@@ -58,3 +58,14 @@
     No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
   </p>
 </ion-content>
+
+<script>
+  var slides = document.querySelector('ion-slides');
+
+    // Optional parameters to pass to the swiper instance.
+    // See http://idangero.us/swiper/api/ for valid options.
+    slides.options = {
+      initialSlide: 1,
+      speed: 400
+    }
+  </script>

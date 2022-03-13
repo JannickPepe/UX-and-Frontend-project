@@ -6,21 +6,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
-import { ViewChild } from '@angular/core';
-import {IonSlides} from '@ionic/angular';
+
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
+
 export class LoginPage implements OnInit {
-
-  @ViewChild('slides', { read: true, static: false }) slides: IonSlides;
-
-  goToSlide() {
-    this.slides.slideTo(2, 500);
-  }
 
 
   validationsForm: FormGroup;
