@@ -30,6 +30,15 @@ export class LoginPage implements OnInit {
 
   ) { }
 
+  // the ion slides options class from login.page.html
+  option ={
+    slidesPerView: 1.5,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 10,
+    autoplay: true,
+  };
+
   ngOnInit() {
 
     this.validationsForm = this.formBuilder.group({

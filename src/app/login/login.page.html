@@ -5,27 +5,46 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-content>
-
-    <h3 style="text-align: center;">Members of the project:</h3>
-    <h4 style="text-align: center;">Drag the image slider</h4>
-    <ion-slides style="margin-top: 3%; margin-bottom: 3%;" pager="true">
-      <ion-slide>
-        <ion-img src="../../assets/jan.png"></ion-img>
-      </ion-slide>
-      <ion-slide>
-        <ion-img src="../../assets/paran.png"></ion-img>
-      </ion-slide>
-      <ion-slide>
-        <ion-img src="../../assets/ruk.png"></ion-img>
-      </ion-slide>
-    </ion-slides>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <h3 style="text-align: center;">Members of the project:</h3>
+        <h4 style="text-align: center;">Drag the image slider or let it autoplay</h4>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-slides [options]="option" class="ion-margin-top">
+          <ion-slide>
+            <ion-card>
+              <img src="../../assets/jan.png">
+            </ion-card>
+          </ion-slide>
+  
+          <ion-slide>
+            <ion-card>
+              <img src="../../assets/ruk.png">
+            </ion-card>
+          </ion-slide>
+  
+          <ion-slide>
+            <ion-card>
+              <img src="../../assets/paran.png">
+            </ion-card>
+          </ion-slide>
+  
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+   
+      
 
     <form class="form" [formGroup]="validationsForm" (ngSubmit)="loginUser(validationsForm.value)">
-
+      <h3 style="text-align: center; margin-top: 2%;">Here you can log in or create a user:</h3>
     <ion-item>
-      <ion-label position="floating" color="primary">Email</ion-label>
+      <ion-label position="floating" color="primary" style="margin-top: 1%;">Email</ion-label>
       <ion-input type="text" formControlName="email"></ion-input>
     </ion-item>
     <div class="validation-errors">
@@ -58,4 +77,5 @@
     No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
   </p>
 </ion-content>
+
 
