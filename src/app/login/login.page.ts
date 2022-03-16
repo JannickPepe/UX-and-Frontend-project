@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
+import { ModalController } from '@ionic/angular';
+import { SharePage } from '../share/share.page';
 
 
 
@@ -23,12 +25,23 @@ export class LoginPage implements OnInit {
   errorMessage: string = '';
 
   constructor(
-
     private navCtrl: NavController,
     private authService: AuthenticateService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public modalController: ModalController,
 
   ) { }
+
+  // the object from the login html, share button class
+  async openShare() {
+    const modal = await this.modalController.create({
+      component:SharePage,
+      initialBreakpoint:0.6,
+      breakpoints:[0,0.6],
+      cssClass:'shareModal'
+    });
+    return await modal.present();
+  }
 
   // the ion slides options class from login.page.html
   option ={
@@ -52,8 +65,6 @@ export class LoginPage implements OnInit {
       ])),
     });
   }
-
-
   validationMessages = {
     'email': [
       { type: 'required', message: 'Email is required.' },

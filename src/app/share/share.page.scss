@@ -1,0 +1,15 @@
+ion-content{
+    --background:#1aa3fe48;
+    backdrop-filter: blur(5px);
+}
+
+.app{
+    img{
+        height: 60px;
+    }
+    p{
+        margin-top: -1px;
+        color: black;
+        font-size: 12px;
+    }
+}
