@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable prefer-const */
 /* eslint-disable @typescript-eslint/dot-notation */
 /* eslint-disable @typescript-eslint/semi */
@@ -7,6 +8,8 @@ import { NavController } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
 import { FirebaseService } from '../services/firebase.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { ModalController } from '@ionic/angular';
+import { SharePage } from '../share/share.page';
 
 
 interface StudentData {
@@ -33,8 +36,30 @@ export class DashboardPage implements OnInit {
     private navCtrl: NavController,
     private authService: AuthenticateService,
     private firebaseService: FirebaseService,
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    public modalController: ModalController,
   ) { this.studentData = {} as StudentData; }
+
+  // the object from the login html, share button class
+  async openShare() {
+    const modal = await this.modalController.create({
+      component:SharePage,
+      initialBreakpoint:0.6,
+      breakpoints:[0,0.6],
+      cssClass:'shareModal'
+    });
+    return await modal.present();
+  }
+
+  // the ion slides options class from login.page.html
+  option ={
+    slidesPerView: 1.5,
+    centeredSlides: true,
+    loop: true,
+    spaceBetween: 10,
+    autoplay: true,
+  };
+
 
   ngOnInit() {
 
