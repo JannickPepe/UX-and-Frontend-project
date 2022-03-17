@@ -46,7 +46,7 @@
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col size="6">
+        <ion-col size="12" >
           <ion-item>
             <ion-label position="floating" color="primary" >Email</ion-label>
             <ion-input type="text" formControlName="email"></ion-input>
@@ -60,7 +60,9 @@
             </ng-container>
           </div>
         </ion-col>
-        <ion-col size="6">
+      </ion-row>
+      <ion-row>  
+        <ion-col size="12" >
           <ion-item>
             <ion-label position="floating" color="primary">Password</ion-label>
             <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
@@ -90,20 +92,20 @@
           </ion-col>
         </ion-row>
       </form>
-      
-      
-      <div class="footer">
-        <ion-row class="ion-text-center">
-          <ion-col size="12">
-            <ion-button (click)='openShare()' color="light" fill="clear">
-              <ion-icon slot="icon-only" name="share"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </div>
-
   </ion-grid>
 
 </ion-content>
+
+<div class="footer">
+  <ion-row class="ion-text-center">
+    <ion-col size="12" style="background-color:rgba(181, 181, 181, 0.296); border-radius: 10px 10px 0px 0px; ">
+      <ion-button (click)='openShare()' style="color:#0f00dde8;" fill="clear">
+        <ion-icon slot="icon-only" name="share"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</div>
+
+
 
 

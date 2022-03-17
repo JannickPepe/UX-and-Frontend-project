@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/type-annotation-spacing */
 import { Component, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from "@angular/forms";
+import { EmailService } from './../services/email.service';
 import { AnimationOptions } from 'ngx-lottie';
 import { AnimationItem } from 'ngx-lottie/lib/symbols';
 
@@ -11,13 +15,22 @@ import { AnimationItem } from 'ngx-lottie/lib/symbols';
 })
 export class EmailPage implements OnInit {
 
+  // This is for the email
+  emailForm: FormGroup;
+
   //this is for the options in html file
   private animation:AnimationItem;
   options:AnimationOptions = {
     path:'../assets/1.json'
   };
 
-  constructor(private ngZone:NgZone) { }
+  // make private fields for the animation lottie with ngZone and aptService route and fb for the email
+  constructor(
+    private ngZone:NgZone,
+    private aptService: EmailService,
+    private router: Router,
+    public fb: FormBuilder
+  ) { }
 
   // this is for the created in the html file
   created(animation:AnimationItem) {
@@ -34,6 +47,24 @@ export class EmailPage implements OnInit {
   }
 
   ngOnInit() {
+    this.emailForm = this.fb.group({
+      name: [''],
+      email: [''],
+      subject: [''],
+      mobile: ['']
+    });
+  }
+  formSubmit() {
+    if (!this.emailForm.valid) {
+      return false;
+    } else {
+      this.aptService.createEmail(this.emailForm.value).then(res => {
+        console.log(res);
+        this.emailForm.reset();
+        this.router.navigate(['/tabs2/dashboard']);
+      })
+        .catch(error => console.log(error));
+    }
   }
 
 }

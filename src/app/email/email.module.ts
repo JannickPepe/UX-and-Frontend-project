@@ -1,7 +1,7 @@
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 import { EmailPageRoutingModule } from './email-routing.module';
@@ -19,6 +19,7 @@ export function playerFactory() {
     LottieModule.forRoot({player:playerFactory}),
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule,
     EmailPageRoutingModule
   ],

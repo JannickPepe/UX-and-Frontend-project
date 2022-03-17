@@ -10,6 +10,8 @@ import { FirebaseService } from '../services/firebase.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { SharePage } from '../share/share.page';
+import { Email } from '../services/Email';
+import { EmailService } from './../services/email.service';
 
 
 interface StudentData {
@@ -18,13 +20,14 @@ interface StudentData {
   Address: string;
 }
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.scss'],
 })
 export class DashboardPage implements OnInit {
+
+  Emails = [];
 
   userEmail: string;
 
@@ -37,6 +40,7 @@ export class DashboardPage implements OnInit {
     private authService: AuthenticateService,
     private firebaseService: FirebaseService,
     public fb: FormBuilder,
+    private aptService: EmailService,
     public modalController: ModalController,
   ) { this.studentData = {} as StudentData; }
 
@@ -62,6 +66,19 @@ export class DashboardPage implements OnInit {
 
 
   ngOnInit() {
+
+    // Email start
+    this.fetchEmails();
+    let emailRes = this.aptService.getEmailList();
+    emailRes.snapshotChanges().subscribe(res => {
+      this.Emails = [];
+      res.forEach(item => {
+        let a = item.payload.toJSON();
+        a['$key'] = item.key;
+        this.Emails.push(a as Email);
+      });
+    });
+    // Email ends
 
     this.authService.userDetails().subscribe(res => {
       console.log('res', res);
@@ -138,6 +155,19 @@ export class DashboardPage implements OnInit {
     record['Address'] = recordRow.EditAddress;
     this.firebaseService.update_student(recordRow.id, record);
     recordRow.isEdit = false;
+  }
+
+  //For the emails
+  fetchEmails() {
+    this.aptService.getEmailList().valueChanges().subscribe(res => {
+      console.log(res);
+    });
+  }
+  deleteEmail(id) {
+    console.log(id);
+    if (window.confirm('Do you really want to delete?')) {
+      this.aptService.deleteEmail(id);
+    }
   }
 
 }

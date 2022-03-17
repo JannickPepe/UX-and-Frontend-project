@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/quotes */
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -7,6 +8,8 @@ export const environment = {
   firebase: {
     apiKey: 'AIzaSyAW5bYKHAPSPuUQoYwRlGjArjnO91-BICk',
     authDomain: 'fireauth-72bb5.firebaseapp.com',
+    // dbURL for the Realtime database
+    databaseURL: "https://fireauth-72bb5-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: 'fireauth-72bb5',
     storageBucket: 'fireauth-72bb5.appspot.com',
     messagingSenderId: '143957597136',

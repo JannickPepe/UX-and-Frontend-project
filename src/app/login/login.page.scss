@@ -1,15 +1,14 @@
 
 // For the share menu START
 .footer{
-    position: fixed;
-    bottom:0;
+    //position: fixed;
+    bottom:0px;
     width: 100%;
-    background-color: rgba(0,0,0,0.146);
     border-radius: 10px 10px 0px 0px;
 }
 .image{
-    position: absolute;
-    bottom: 0;
+    //position: absolute;
+    bottom: 0px;
     width: 100%;
 }
 // For the share menu START
@@ -44,3 +43,5 @@ ion-card {
     transition: 400ms all ease-in-out;
 }
 // For the img slider END
+
+
