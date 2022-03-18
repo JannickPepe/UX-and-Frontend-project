@@ -2,7 +2,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      email
+      Email
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,9 +10,10 @@
 <ion-content [fullscreen]="true" class="ion-padding">
 
   <ion-grid>
+    <ion-list lines="full">
+      <form [formGroup]="emailForm" (ngSubmit)="formSubmit()">
     <ion-row>
-      <ion-list lines="full">
-        <form [formGroup]="emailForm" (ngSubmit)="formSubmit()">
+      
       <ion-col size="6">
         <h2>
           Fill out the email form
@@ -36,14 +37,16 @@
               <ion-input formControlName="mobile" type="text" required>
               </ion-input>
             </ion-item>
-            <ion-button type="submit" color="primary" shape="full" expand="block">Send Email</ion-button>
+            <ion-button type="submit" color="primary" shape="full" expand="block" style="margin-top: 10px;">Send Email</ion-button>
       </ion-col>
-    </form>
-    </ion-list>
+
       <ion-col size="auto">
         <ng-lottie [options]='options' (animationCreated)='created($event)'></ng-lottie>
       </ion-col>
     </ion-row>
+  </form>
+</ion-list>
+
     <ion-row>
       <ion-col size="4">
       </ion-col>

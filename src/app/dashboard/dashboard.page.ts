@@ -27,13 +27,16 @@ interface StudentData {
 })
 export class DashboardPage implements OnInit {
 
+  // Email Start
   Emails = [];
-
   userEmail: string;
+  // Email ends
 
+  // CRUD student starts
   studentList = [];
   studentData: StudentData;
   studentForm: FormGroup;
+  // Crud student ends
 
   constructor(
     private navCtrl: NavController,
