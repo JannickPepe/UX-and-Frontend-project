@@ -30,7 +30,7 @@ export class DashboardPage implements OnInit {
   // Email Start
   Emails = [];
   userEmail: string;
-  // Email ends
+  // Email ends*
 
   // CRUD student starts
   studentList = [];

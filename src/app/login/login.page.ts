@@ -1,13 +1,15 @@
+/* eslint-disable prefer-const */
 /* eslint-disable quote-props */
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 // login.page.ts
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController, Platform } from '@ionic/angular';
 import { AuthenticateService } from '../services/authentication.service';
 import { ModalController } from '@ionic/angular';
 import { SharePage } from '../share/share.page';
+
 
 
 
@@ -29,8 +31,20 @@ export class LoginPage implements OnInit {
     private authService: AuthenticateService,
     private formBuilder: FormBuilder,
     public modalController: ModalController,
+    private alertCtrl: AlertController,
+    private platform: Platform
 
   ) { }
+
+  // Plugin Condovar
+  async showPlatform() {
+    let text = 'I run on: ' + this.platform.platforms();
+    let alert = this.alertCtrl.create({
+      message: text,
+      buttons: ['Ok']
+    });
+    (await alert).present();
+  }
 
   // the object from the login html, share button class
   async openShare() {
