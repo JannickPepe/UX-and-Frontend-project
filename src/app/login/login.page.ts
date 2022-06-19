@@ -10,9 +10,6 @@ import { AuthenticateService } from '../services/authentication.service';
 import { ModalController } from '@ionic/angular';
 import { SharePage } from '../share/share.page';
 
-
-
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -25,6 +22,8 @@ export class LoginPage implements OnInit {
 
   validationsForm: FormGroup;
   errorMessage: string = '';
+
+  message: string = 'Enjoy setTimeout !';
 
   constructor(
     private navCtrl: NavController,

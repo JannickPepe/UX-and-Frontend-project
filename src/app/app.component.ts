@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -42,5 +44,6 @@ export class AppComponent {
       this.router.navigateByUrl('splash');
     });
   }
+
 
 }
